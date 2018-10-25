@@ -1,9 +1,10 @@
 //TODO make moment work
-//TODO fix movie search
+//TODO function justDoIT
 // TODO env not working for concert & Movie
-// 
+
 require("dotenv").config();
 var fs = require("fs");
+var moment= require('moment')
 
 
 var Spotify = require('node-spotify-api');
@@ -47,7 +48,8 @@ switch (action) {
 function showConcert() {
 
   request('https://rest.bandsintown.com/artists/' + artist + '/events?app_id=codingbootcamp', function (error, response, body) {
-    if (error) {
+ var date = moment(body[0].datetime).format("MMDDYYYY")
+  if (error) {
       console.log(error); // Print the error if one occurred
     } else {
       response && response.statusCode // Print the response status code if a response was received
@@ -117,7 +119,7 @@ function showMovie() {
 
 function justDoIt (){
   fs.readFile('random.txt', "utf8", function(error, data){
-   
-});
+    
+	});
 }
 
