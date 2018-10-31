@@ -15,13 +15,13 @@ var moment = require('moment');
 
 
 var action = process.argv[2]
-var search = process.argv[3]
+var search = process.argv.slice(3).join(" ")
 var artist = search
 var movieSearch = search
-for (i = 4; i < process.argv.length; i++) {
-  artist += "%20" + process.argv[i];
-  movieSearch += "+" + process.argv[i]
-}
+// for (i = 4; i < process.argv.length; i++) {
+//   artist += "%20" + process.argv[i];
+//   movieSearch += "+" + process.argv[i]
+
 // switch statement
 
 switch (action) {
